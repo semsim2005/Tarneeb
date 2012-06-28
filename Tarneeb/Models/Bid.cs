@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace Tarneeb.Models
 {
@@ -25,13 +22,13 @@ namespace Tarneeb.Models
         /// </summary>
         public static Bid CreateBid(Player player, int tricks, Suit suit)
         {
-            Bid bid = new Bid()
-            {
-                IsPass = false,
-                Player = player,
-                Tricks = tricks,
-                Suit = suit
-            };
+            var bid = new Bid
+                          {
+                              IsPass = false,
+                              Player = player,
+                              Tricks = tricks,
+                              Suit = suit
+                          };
 
             return bid;
         }
@@ -41,11 +38,11 @@ namespace Tarneeb.Models
         /// </summary>
         public static Bid CreatePassBid(Player player)
         {
-            Bid bid = new Bid()
-            {
-                IsPass = true,
-                Player = player
-            };
+            var bid = new Bid
+                          {
+                              IsPass = true,
+                              Player = player
+                          };
 
             return bid;
         }
@@ -56,7 +53,7 @@ namespace Tarneeb.Models
 
         public static Bid CreatePassAndDoubleBid(Player player)
         {
-            Bid bid = CreatePassBid(player);
+            var bid = CreatePassBid(player);
 
             bid.IsDouble = true;
 
@@ -72,16 +69,12 @@ namespace Tarneeb.Models
         {
             if (IsPass)
             {
-                return string.Format("{0} - Pass", Player.ToString());
+                return string.Format("{0} - Pass", Player);
             }
-            else
-            {
-                string suitString =
-                    (Suit == Suit.None) ? "No Trump" : Suit.ToString();
+            string suitString =
+                (Suit == Suit.None) ? "No Trump" : Suit.ToString();
 
-                return string.Format("{0} - {1} - {2}", Player.ToString(), Tricks, suitString);
-            }
-
+            return string.Format("{0} - {1} - {2}", Player, Tricks, suitString);
         }
 
         /// <summary>
@@ -90,24 +83,18 @@ namespace Tarneeb.Models
         public int CompareTo(Bid other)
         {
             //TODO: Handle pass in the comparison
-            if (this.Tricks != other.Tricks)
+            if (Tricks != other.Tricks)
             {
-                return this.Tricks.CompareTo(other.Tricks);
+                return Tricks.CompareTo(other.Tricks);
             }
-            else
+            if (Suit == other.Suit)
             {
-                if (this.Suit == other.Suit)
-                {
-                    return 0;
-                }
-                else
-                {
-                    int thisSuitOrder = 4 - (int)this.Suit;
-                    int otherSuitOrder = 4 - (int)other.Suit;
+                return 0;
+            }
+            var thisSuitOrder = 4 - (int)Suit;
+            var otherSuitOrder = 4 - (int)other.Suit;
 
-                    return thisSuitOrder.CompareTo(otherSuitOrder);
-                }
-            }
+            return thisSuitOrder.CompareTo(otherSuitOrder);
         }
     }
 }

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace Tarneeb.Models
 {
@@ -26,18 +24,13 @@ namespace Tarneeb.Models
         /// <summary>
         /// The cards in the current trick identified by the player position
         /// </summary>
-        public Dictionary<PlayerPosition,Card> CurrentTrick { get; private set; }
+        public Dictionary<PlayerPosition, Card> CurrentTrick { get; private set; }
 
         /// <summary>
         /// The current player position
         /// </summary>
         public PlayerPosition CurrentTurn { get; private set; }
 
-        /// <summary>
-        /// The game play start position, should be the winner of the bid
-        /// </summary>
-        private PlayerPosition startPosition;
-        
         /// <summary>
         /// The number of tricks played (each trick is 4 cards by each player)
         /// </summary>
@@ -48,7 +41,7 @@ namespace Tarneeb.Models
         /// in the current trick)
         /// </summary>
         public Suit CurrentTrickBaseSuit { get; private set; }
-        
+
         /// <summary>
         /// The trump suit of the winning bid
         /// </summary>
@@ -70,17 +63,16 @@ namespace Tarneeb.Models
             }
         }
 
-        public GamePlay(GameSession gameSession,PlayerPosition startPosition,Suit trumpSuit)
+        public GamePlay(GameSession gameSession, PlayerPosition startPosition, Suit trumpSuit)
         {
             PlayerCards = new Dictionary<PlayerPosition, List<Card>>(4);
-            CurrentTrick = new Dictionary<PlayerPosition,Card>(4);
-            
+            CurrentTrick = new Dictionary<PlayerPosition, Card>(4);
+
             TricksWon = new Dictionary<TeamPosition, int>(4);
             TricksWon[TeamPosition.NorthSouth] = 0;
             TricksWon[TeamPosition.EastWest] = 0;
 
             this.gameSession = gameSession;
-            this.startPosition = startPosition;
             this.trumpSuit = trumpSuit;
 
             CurrentTurn = startPosition;
@@ -112,7 +104,7 @@ namespace Tarneeb.Models
         /// Place the specified card by the specified player in the current trick.
         /// And evaluate the trick to determine the winner
         /// </summary>
-        public void PlaceCard(Player player,Card card)
+        public void PlaceCard(Player player, Card card)
         {
             PlayerPosition position = gameSession.GetPlayerPosition(player);
             if (position == CurrentTurn)
@@ -197,10 +189,10 @@ namespace Tarneeb.Models
 
         private PlayerPosition EvaluateCurrentTrick()
         {
-            Card maxCard=CurrentTrick[CurrentTurn];
+            Card maxCard = CurrentTrick[CurrentTurn];
             PlayerPosition trickWinner = CurrentTurn;
 
-            foreach(PlayerPosition tempPosition in CurrentTrick.Keys)
+            foreach (PlayerPosition tempPosition in CurrentTrick.Keys)
             {
                 if (tempPosition != CurrentTurn)
                 {

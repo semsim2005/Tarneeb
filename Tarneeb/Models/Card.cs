@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Globalization;
 
 namespace Tarneeb.Models
 {
@@ -28,8 +26,8 @@ namespace Tarneeb.Models
         /// </summary>
         public Card(int card, Suit suit)
         {
-            this.Rank = card;
-            this.Suit = suit;
+            Rank = card;
+            Suit = suit;
         }
 
         /// <summary>
@@ -39,12 +37,11 @@ namespace Tarneeb.Models
         /// <param name="card"></param>
         public Card(string card)
         {
-            string tempCard, tempSuit;
-            tempCard = card.Substring(0, card.Length - 1);
-            tempSuit = card.Substring(card.Length - 1, 1);
+            var tempCard = card.Substring(0, card.Length - 1);
+            var tempSuit = card.Substring(card.Length - 1, 1);
 
-            this.Rank = int.Parse(tempCard);
-            this.Suit = SuitFromString(tempSuit);
+            Rank = int.Parse(tempCard);
+            Suit = SuitFromString(tempSuit);
         }
 
         /// <summary>
@@ -52,30 +49,21 @@ namespace Tarneeb.Models
         /// </summary>
         public int CompareTo(Card other)
         {
-            if (this.Suit != other.Suit)
+            if (Suit != other.Suit)
             {
-                return ((int)this.Suit).CompareTo((int)other.Suit) * -1;
+                return ((int)Suit).CompareTo((int)other.Suit) * -1;
             }
-            else
+            if (Rank != 1 && other.Rank != 1)
             {
-                if (this.Rank != 1 && other.Rank != 1)
-                {
-                    return this.Rank.CompareTo(other.Rank);
-                }
-                else
-                {
-                    if (this.Rank == 1)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        return -1;
-                    }
-                }
+                return Rank.CompareTo(other.Rank);
             }
+            if (Rank == 1)
+            {
+                return 1;
+            }
+            return -1;
         }
-        
+
         /// <summary>
         /// Returns string representation of the card in the format of
         /// [Rank] [Suit] for example A Spades and 10 Diamonds
@@ -99,11 +87,10 @@ namespace Tarneeb.Models
                     cardString = "K";
                     break;
                 default:
-                    cardString = Rank.ToString();
-                    break;
+                    return Rank.ToString(CultureInfo.InvariantCulture);
             }
 
-            return string.Format("{0} {1}",cardString, Suit.ToString());
+            return string.Format("{0} {1}", cardString, Suit.ToString());
         }
 
         public static Suit SuitFromString(string suitString)

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace Tarneeb.Models
 {
@@ -48,15 +45,15 @@ namespace Tarneeb.Models
         {
             return (Player1 == player || Player2 == player);
         }
-        
+
         /// <summary>
         /// Make the specified player join the team on the specified position
         /// </summary>
         public void Join(Player player, PlayerPosition position)
         {
             if (
-                ((position == PlayerPosition.North ||  position == PlayerPosition.East) && Player1 != null) ||
-                ((position == PlayerPosition.South ||  position == PlayerPosition.West) && Player2 != null))
+                ((position == PlayerPosition.North || position == PlayerPosition.East) && Player1 != null) ||
+                ((position == PlayerPosition.South || position == PlayerPosition.West) && Player2 != null))
             {
 
                 throw new InvalidOperationException("Another player already holding this position");
@@ -65,11 +62,11 @@ namespace Tarneeb.Models
             switch (position)
             {
                 case PlayerPosition.North:
-                case PlayerPosition.East: 
+                case PlayerPosition.East:
                     Player1 = player;
                     break;
                 case PlayerPosition.South:
-                case PlayerPosition.West: 
+                case PlayerPosition.West:
                     Player2 = player;
                     break;
             }

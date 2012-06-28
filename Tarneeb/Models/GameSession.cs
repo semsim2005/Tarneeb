@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace Tarneeb.Models
 {
@@ -11,7 +10,7 @@ namespace Tarneeb.Models
     public class GameSession
     {
         #region General Game Session Properties
-       
+
         /// <summary>
         /// The identifier of the game
         /// </summary>
@@ -121,11 +120,9 @@ namespace Tarneeb.Models
         {
             Id = Guid.NewGuid();
             CreationTime = DateTime.Now;
-            Status = GameSessionStatus.WaitingForPlayers;            
+            Status = GameSessionStatus.WaitingForPlayers;
 
-            teams = new Dictionary<TeamPosition, Team>(2);
-            teams.Add(TeamPosition.NorthSouth, new Team());
-            teams.Add(TeamPosition.EastWest, new Team());
+            teams = new Dictionary<TeamPosition, Team>(2) { { TeamPosition.NorthSouth, new Team() }, { TeamPosition.EastWest, new Team() } };
 
             //initialize bidding start position to the one to the right of South
             currentBiddingStartPosition = PlayerPosition.East;
@@ -252,7 +249,7 @@ namespace Tarneeb.Models
         /// <summary>
         /// Makes the current turn player play the specified card
         /// </summary>
-        public void PlaceCard(Player player,Card card)
+        public void PlaceCard(Player player, Card card)
         {
             if (Status == GameSessionStatus.GamePlay && gamePlay != null)
             {
@@ -272,7 +269,7 @@ namespace Tarneeb.Models
             {
                 if (gamePlay != null)
                 {
-                    
+
                     PlayerPosition position = GetPlayerPosition(player);
 
                     return new GamePlayState()
@@ -323,7 +320,7 @@ namespace Tarneeb.Models
             int nsScore = (bidTeamPosition == TeamPosition.NorthSouth) ? bidTeamScore : otherTeamScore;
             int ewScore = (bidTeamPosition == TeamPosition.EastWest) ? bidTeamScore : otherTeamScore;
 
-            MatchScore.AddGameScore(new GameScore(CurrentBid,nsScore, ewScore));
+            MatchScore.AddGameScore(new GameScore(CurrentBid, nsScore, ewScore));
             if (MatchScore.Winner != null)
             {
                 //Match completed
@@ -343,13 +340,13 @@ namespace Tarneeb.Models
         /// <returns></returns>
         public GameSessionState GetGameSessionState()
         {
-            return new GameSessionState()
-            {
-                Id=this.Id,
-                Players=Players,
-                CreationTime=CreationTime,
-                Status=Status
-            };
+            return new GameSessionState
+                       {
+                           Id = Id,
+                           Players = Players,
+                           CreationTime = CreationTime,
+                           Status = Status
+                       };
         }
 
         #endregion
@@ -398,7 +395,7 @@ namespace Tarneeb.Models
         /// </summary>
         public PlayerPosition GetPlayerPosition(Player player)
         {
-            return 
+            return
                 Players
                 .Where(p => p.Value == player)
                 .Select(p => p.Key).FirstOrDefault();

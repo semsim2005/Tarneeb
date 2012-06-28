@@ -1,0 +1,7 @@
+C:\Users\selhadidy\Documents\GitHub\Tarneeb\Tarneeb\bin\Tarneeb.dll
+C:\Users\selhadidy\Documents\GitHub\Tarneeb\Tarneeb\bin\Tarneeb.pdb
+C:\Users\selhadidy\Documents\GitHub\Tarneeb\Tarneeb\bin\EntityFramework.dll
+C:\Users\selhadidy\Documents\GitHub\Tarneeb\Tarneeb\bin\EntityFramework.xml
+C:\Users\selhadidy\Documents\GitHub\Tarneeb\Tarneeb\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\selhadidy\Documents\GitHub\Tarneeb\Tarneeb\obj\Debug\Tarneeb.dll
+C:\Users\selhadidy\Documents\GitHub\Tarneeb\Tarneeb\obj\Debug\Tarneeb.pdb

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace Tarneeb.Models
 {
@@ -16,7 +14,7 @@ namespace Tarneeb.Models
         /// <summary>
         /// Reference to the owner game session for callback
         /// </summary>
-        private GameSession gameSession;
+        private readonly GameSession _gameSession;
 
         /// <summary>
         /// List of bids
@@ -27,11 +25,6 @@ namespace Tarneeb.Models
         /// The current turn in the bidding
         /// </summary>
         public PlayerPosition CurrentTurn { get; private set; }
-        
-        /// <summary>
-        /// The starting player of the current bidding process
-        /// </summary>
-        private PlayerPosition startPosition;
 
         /// <summary>
         /// Indicates whether the current bidding process is complete or not
@@ -47,24 +40,20 @@ namespace Tarneeb.Models
             {
                 if (IsClosed)
                 {
-                    Bid winner = GetLastNonPassBid();
+                    var winner = GetLastNonPassBid();
 
                     return winner;
                 }
-                else
-                {
-                    return null;
-                }
+                return null;
             }
         }
 
-        public Bidding(GameSession gameSession,PlayerPosition startPosition)
+        public Bidding(GameSession gameSession, PlayerPosition startPosition)
         {
-            this.gameSession = gameSession;
+            _gameSession = gameSession;
 
             Bids = new List<Bid>();
 
-            this.startPosition = startPosition;
             CurrentTurn = startPosition;
         }
 
@@ -77,18 +66,18 @@ namespace Tarneeb.Models
         {
             if (!IsClosed)
             {
-                if (gameSession.GetPlayer(CurrentTurn) == bid.Player)
+                if (_gameSession.GetPlayer(CurrentTurn) == bid.Player)
                 {
                     //TODO: handle pass&double and re-double bids
 
                     Bid lastBid = GetLastNonPassBid();
-                    if (bid.IsPass || lastBid == null || (lastBid != null && bid.CompareTo(lastBid) > 0))
+                    if (bid.IsPass || lastBid == null || (bid.CompareTo(lastBid) > 0))
                     {
                         Bids.Add(bid);
                         if (bid.IsPass && GetNumberOfPassBids() >= 3)
                         {
                             IsClosed = true;
-                            gameSession.BiddingComplete();
+                            _gameSession.BiddingComplete();
                         }
                         else
                         {

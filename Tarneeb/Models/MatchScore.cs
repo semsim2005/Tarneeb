@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace Tarneeb.Models
 {
@@ -57,10 +54,10 @@ namespace Tarneeb.Models
     /// </summary>
     public class GameScore
     {
-        public Dictionary<TeamPosition,int> Score { get; set; }
+        public Dictionary<TeamPosition, int> Score { get; set; }
         public Bid GameBid { get; set; }
 
-        public GameScore(Bid gameBid,int nsScore,int ewScore)
+        public GameScore(Bid gameBid, int nsScore, int ewScore)
         {
             this.GameBid = gameBid;
             Score = new Dictionary<TeamPosition, int>();
