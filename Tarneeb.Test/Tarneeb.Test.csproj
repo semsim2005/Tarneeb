@@ -52,7 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tarneeb\Tarneeb.csproj">
-      <Project>{8BE79690-B7DB-4A01-A6A4-3D8B9FD19951}</Project>
+      <Project>{533EEE30-1185-4B08-8879-55F39F284C74}</Project>
       <Name>Tarneeb</Name>
     </ProjectReference>
   </ItemGroup>

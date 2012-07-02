@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="d1914db5-3eef-49a0-920d-6f7df3b2a2d6" name="SElhadidy@EGY-SELHADIDY-N 2012-07-02 17:28:50" runUser="STA\SElhadidy" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="23f8a46f-754d-46d8-8051-970777a30213">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="SElhadidy_EGY-SELHADIDY-N 2012-07-02 17_28_50">
+      <DeploymentItem filename="C:\Users\selhadidy\Documents\GitHub\Tarneeb\Tarneeb\bin\Tarneeb.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-07-02T17:28:50.9255258+02:00" queuing="2012-07-02T17:28:53.8298162+02:00" start="2012-07-02T17:28:53.9428275+02:00" finish="2012-07-02T17:28:56.3480680+02:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="6" executed="6" passed="6" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestBasicBidding" storage="c:\users\selhadidy\documents\github\tarneeb\tarneeb.test\bin\debug\tarneeb.test.dll" id="2daa2049-3fb0-2584-9330-132c47870004">
+      <Execution id="b87276d5-5a16-4343-8c71-dd28d457eb80" />
+      <TestMethod codeBase="C:/Users/selhadidy/Documents/GitHub/Tarneeb/Tarneeb.Test/bin/Debug/Tarneeb.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Tarneeb.Test.BiddingTest, Tarneeb.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestBasicBidding" />
+    </UnitTest>
+    <UnitTest name="TestSortCards" storage="c:\users\selhadidy\documents\github\tarneeb\tarneeb.test\bin\debug\tarneeb.test.dll" id="2211914f-f712-0e0c-2c9a-47b1d0a7543b">
+      <Execution id="d6b8f553-018c-4f7e-af77-0517f9d90f62" />
+      <TestMethod codeBase="C:/Users/selhadidy/Documents/GitHub/Tarneeb/Tarneeb.Test/bin/Debug/Tarneeb.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Tarneeb.Test.ShufflerTest, Tarneeb.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestSortCards" />
+    </UnitTest>
+    <UnitTest name="TestShuffle" storage="c:\users\selhadidy\documents\github\tarneeb\tarneeb.test\bin\debug\tarneeb.test.dll" id="c8e039bb-c001-49c5-ae80-cd46d2cc2a1e">
+      <Execution id="6d3186bc-98d7-4d68-9e9b-f074e993bae2" />
+      <TestMethod codeBase="C:/Users/selhadidy/Documents/GitHub/Tarneeb/Tarneeb.Test/bin/Debug/Tarneeb.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Tarneeb.Test.ShufflerTest, Tarneeb.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestShuffle" />
+    </UnitTest>
+    <UnitTest name="TestReDoubleBidding" storage="c:\users\selhadidy\documents\github\tarneeb\tarneeb.test\bin\debug\tarneeb.test.dll" id="5bf31575-534e-2843-8632-7cc2b299a04f">
+      <Execution id="7976f202-ae57-4319-9da7-26f034b59459" />
+      <TestMethod codeBase="C:/Users/selhadidy/Documents/GitHub/Tarneeb/Tarneeb.Test/bin/Debug/Tarneeb.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Tarneeb.Test.BiddingTest, Tarneeb.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestReDoubleBidding" />
+    </UnitTest>
+    <UnitTest name="TestDoubleBidding" storage="c:\users\selhadidy\documents\github\tarneeb\tarneeb.test\bin\debug\tarneeb.test.dll" id="5f7c4235-f233-07a2-c703-eebf22925161">
+      <Execution id="4f6cf1b2-0a69-4c79-bb5c-7a5a7704d029" />
+      <TestMethod codeBase="C:/Users/selhadidy/Documents/GitHub/Tarneeb/Tarneeb.Test/bin/Debug/Tarneeb.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Tarneeb.Test.BiddingTest, Tarneeb.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestDoubleBidding" />
+    </UnitTest>
+    <UnitTest name="TestBasicGame" storage="c:\users\selhadidy\documents\github\tarneeb\tarneeb.test\bin\debug\tarneeb.test.dll" id="c0844b29-4d87-4e77-bb24-8c44dda1938a">
+      <Execution id="db5f7488-c62e-44e0-9c2c-bc9f47082f00" />
+      <TestMethod codeBase="C:/Users/selhadidy/Documents/GitHub/Tarneeb/Tarneeb.Test/bin/Debug/Tarneeb.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Tarneeb.Test.GamePlayTest, Tarneeb.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestBasicGame" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="2211914f-f712-0e0c-2c9a-47b1d0a7543b" executionId="d6b8f553-018c-4f7e-af77-0517f9d90f62" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2daa2049-3fb0-2584-9330-132c47870004" executionId="b87276d5-5a16-4343-8c71-dd28d457eb80" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5bf31575-534e-2843-8632-7cc2b299a04f" executionId="7976f202-ae57-4319-9da7-26f034b59459" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5f7c4235-f233-07a2-c703-eebf22925161" executionId="4f6cf1b2-0a69-4c79-bb5c-7a5a7704d029" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c0844b29-4d87-4e77-bb24-8c44dda1938a" executionId="db5f7488-c62e-44e0-9c2c-bc9f47082f00" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c8e039bb-c001-49c5-ae80-cd46d2cc2a1e" executionId="6d3186bc-98d7-4d68-9e9b-f074e993bae2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="d6b8f553-018c-4f7e-af77-0517f9d90f62" testId="2211914f-f712-0e0c-2c9a-47b1d0a7543b" testName="TestSortCards" computerName="EGY-SELHADIDY-N" duration="00:00:00.0120073" startTime="2012-07-02T17:28:53.9998332+02:00" endTime="2012-07-02T17:28:56.0050337+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d6b8f553-018c-4f7e-af77-0517f9d90f62">
+    </UnitTestResult>
+    <UnitTestResult executionId="b87276d5-5a16-4343-8c71-dd28d457eb80" testId="2daa2049-3fb0-2584-9330-132c47870004" testName="TestBasicBidding" computerName="EGY-SELHADIDY-N" duration="00:00:00.0679980" startTime="2012-07-02T17:28:56.0300362+02:00" endTime="2012-07-02T17:28:56.1090441+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b87276d5-5a16-4343-8c71-dd28d457eb80">
+    </UnitTestResult>
+    <UnitTestResult executionId="7976f202-ae57-4319-9da7-26f034b59459" testId="5bf31575-534e-2843-8632-7cc2b299a04f" testName="TestReDoubleBidding" computerName="EGY-SELHADIDY-N" duration="00:00:00.0002085" startTime="2012-07-02T17:28:56.1150447+02:00" endTime="2012-07-02T17:28:56.1250457+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7976f202-ae57-4319-9da7-26f034b59459">
+    </UnitTestResult>
+    <UnitTestResult executionId="4f6cf1b2-0a69-4c79-bb5c-7a5a7704d029" testId="5f7c4235-f233-07a2-c703-eebf22925161" testName="TestDoubleBidding" computerName="EGY-SELHADIDY-N" duration="00:00:00.0002399" startTime="2012-07-02T17:28:56.1320464+02:00" endTime="2012-07-02T17:28:56.1410473+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4f6cf1b2-0a69-4c79-bb5c-7a5a7704d029">
+    </UnitTestResult>
+    <UnitTestResult executionId="db5f7488-c62e-44e0-9c2c-bc9f47082f00" testId="c0844b29-4d87-4e77-bb24-8c44dda1938a" testName="TestBasicGame" computerName="EGY-SELHADIDY-N" duration="00:00:00.0243303" startTime="2012-07-02T17:28:56.1500482+02:00" endTime="2012-07-02T17:28:56.1850517+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="db5f7488-c62e-44e0-9c2c-bc9f47082f00">
+      <Output>
+        <StdOut>South-10
+East-3
+North-8
+West-4
+West-5
+South-2
+East-J Clubs
+North-9
+North-2
+West-K Diamonds
+South-5
+East-3
+East-4
+North-10
+West-A Diamonds
+South-6
+South-8
+East-7
+North-6
+West-K Clubs
+West-3
+South-8
+East-2
+North-4
+North-9
+West-5
+South-Q Hearts
+East-7
+East-10
+North-K Hearts
+West-J Hearts
+South-7
+South-Q Clubs
+East-A Clubs
+North-3
+West-6
+North-8
+West-2
+South-6
+East-4
+North-10
+West-7
+South-A Spades
+East-5
+South-J Diamonds
+East-9
+North-J Spades
+West-A Hearts
+North-Q Spades
+West-K Spades
+South-Q Diamonds
+East-9
+NS:8 - EW:0</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="6d3186bc-98d7-4d68-9e9b-f074e993bae2" testId="c8e039bb-c001-49c5-ae80-cd46d2cc2a1e" testName="TestShuffle" computerName="EGY-SELHADIDY-N" duration="00:00:00.0008565" startTime="2012-07-02T17:28:56.1920524+02:00" endTime="2012-07-02T17:28:56.2000532+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6d3186bc-98d7-4d68-9e9b-f074e993bae2">
+    </UnitTestResult>
+  </Results>
+</TestRun>

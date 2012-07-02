@@ -1,7 +1,8 @@
 C:\Users\selhadidy\Documents\GitHub\Tarneeb\Tarneeb.Test\bin\Debug\Tarneeb.Test.dll
 C:\Users\selhadidy\Documents\GitHub\Tarneeb\Tarneeb.Test\bin\Debug\Tarneeb.Test.pdb
-C:\Users\selhadidy\Documents\GitHub\Tarneeb\Tarneeb.Test\bin\Debug\Tarneeb.dll
-C:\Users\selhadidy\Documents\GitHub\Tarneeb\Tarneeb.Test\bin\Debug\Tarneeb.pdb
 C:\Users\selhadidy\Documents\GitHub\Tarneeb\Tarneeb.Test\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\selhadidy\Documents\GitHub\Tarneeb\Tarneeb.Test\obj\Debug\Tarneeb.Test.dll
 C:\Users\selhadidy\Documents\GitHub\Tarneeb\Tarneeb.Test\obj\Debug\Tarneeb.Test.pdb
+C:\Users\selhadidy\Documents\GitHub\Tarneeb\Tarneeb.Test\bin\Debug\Tarneeb.dll
+C:\Users\selhadidy\Documents\GitHub\Tarneeb\Tarneeb.Test\bin\Debug\Tarneeb.pdb
+C:\Users\selhadidy\Documents\GitHub\Tarneeb\Tarneeb.Test\bin\Debug\System.Web.Optimization.dll
