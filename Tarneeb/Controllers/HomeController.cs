@@ -28,5 +28,12 @@ namespace TarneebMVC4.Controllers
 
             return View();
         }
+
+        public ActionResult SignalR()
+        {
+            ViewBag.Message = "Your quintessential contact page.";
+
+            return View();
+        }
     }
 }

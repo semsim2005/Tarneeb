@@ -1,6 +1,5 @@
 <Modules>
   <Module PersistentId="C6377A32-399D-4025-A74C-03F760BB2624" ModuleId="Tarneeb.Test" />
-  <Module PersistentId="67043927-567A-4DFC-94B0-19F787A0E5BC" ModuleId="TarneebMVC4" />
-  <Module PersistentId="055FFD2C-C29E-4692-A319-A6B35C502135" ModuleId="TarneebMVC4_1" />
   <Module PersistentId="533EEE30-1185-4B08-8879-55F39F284C74" ModuleId="TarneebMVC4_2" />
+  <Module PersistentId="BF92998B-EDDA-4A02-9DD9-5883370F79D3" ModuleId="TarneebMVC4" />
 </Modules>

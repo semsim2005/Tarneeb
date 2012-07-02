@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "SignalR";
+}
+<h2>
+    SignalR</h2>
+<script type="text/javascript">
+    $(function () {
+        var proxy = $.connection.sessionManager;
+
+        proxy.broadcast = function (args) {
+            $("#messages").append('<li>' + args.message + '</li>');
+        };
+
+        $("#create").click(function () {
+            proxy.create($("#group").val());
+        });
+
+        $("#join").click(function () {
+            proxy.join($("#group").val());
+        });
+
+        $.connection.hub.start();
+    });
+</script>
+<div>
+    <input type="text" id="group" />
+    <input type="button" id="create" value="Create" />
+    <input type="button" id="join" value="Join" />
+</div>
+<div>
+    <ul id="messages">
+    </ul>
+</div>
