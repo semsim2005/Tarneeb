@@ -131,22 +131,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Hubs\SessionManager.cs" />
+    <Compile Include="Hubs\Activity.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ToBeNamed\AccountModels.cs" />
-    <Compile Include="ToBeNamed\Bid.cs" />
-    <Compile Include="ToBeNamed\Bidding.cs" />
-    <Compile Include="ToBeNamed\BiddingState.cs" />
-    <Compile Include="ToBeNamed\Card.cs" />
-    <Compile Include="ToBeNamed\CardsShuffler.cs" />
-    <Compile Include="ToBeNamed\GamePlay.cs" />
-    <Compile Include="ToBeNamed\GamePlayState.cs" />
-    <Compile Include="ToBeNamed\GameSession.cs" />
-    <Compile Include="ToBeNamed\GameSessionState.cs" />
-    <Compile Include="ToBeNamed\MatchScore.cs" />
-    <Compile Include="ToBeNamed\Player.cs" />
-    <Compile Include="ToBeNamed\Team.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -259,6 +246,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ToBeNamed\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

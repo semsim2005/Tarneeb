@@ -1,0 +1,5 @@
+C:\Users\selhadidy\Documents\GitHub\Tarneeb\Tarneeb.Engine\bin\Debug\Tarneeb.Engine.dll
+C:\Users\selhadidy\Documents\GitHub\Tarneeb\Tarneeb.Engine\bin\Debug\Tarneeb.Engine.pdb
+C:\Users\selhadidy\Documents\GitHub\Tarneeb\Tarneeb.Engine\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\selhadidy\Documents\GitHub\Tarneeb\Tarneeb.Engine\obj\Debug\Tarneeb.Engine.dll
+C:\Users\selhadidy\Documents\GitHub\Tarneeb\Tarneeb.Engine\obj\Debug\Tarneeb.Engine.pdb

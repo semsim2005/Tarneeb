@@ -1,37 +1,58 @@
 ﻿<RecentFiles>
   <RecentFiles>
-    <File id="C6377A32-399D-4025-A74C-03F760BB2624/f:ShufflerTest.cs" caret="0" fromTop="0" />
-    <File id="C6377A32-399D-4025-A74C-03F760BB2624/f:GamePlayTest.cs" caret="248" fromTop="11" />
     <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Controllers/f:HomeController.cs" caret="869" fromTop="13" />
     <File id="533EEE30-1185-4B08-8879-55F39F284C74/f:Global.asax.cs" caret="840" fromTop="12" />
     <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Views/d:Home/f:Contact.cshtml" caret="178" fromTop="0" />
     <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Views/d:Home/f:Index.cshtml" caret="2364" fromTop="6" />
-    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Views/d:Shared/f:_Layout.cshtml" caret="654" fromTop="9" />
-    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Views/d:Home/f:SignalR.cshtml" caret="482" fromTop="6" />
-    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Hubs/f:SessionManager.cs" caret="320" fromTop="11" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Views/d:Shared/f:_Layout.cshtml" caret="720" fromTop="10" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Hubs/f:Activity.cs" caret="457" fromTop="15" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Views/d:Home/f:SignalR.cshtml" caret="432" fromTop="17" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:GamePlayState.cs" caret="277" fromTop="8" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:GameSessionState.cs" caret="0" fromTop="0" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:BiddingState.cs" caret="0" fromTop="0" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:Bidding.cs" caret="1435" fromTop="46" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:MatchScore.cs" caret="416" fromTop="0" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:GameSession.cs" caret="1582" fromTop="13" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:GamePlay.cs" caret="3104" fromTop="84" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Extensions.cs" caret="357" fromTop="12" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Enums.cs" caret="172" fromTop="10" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Bid.cs" caret="203" fromTop="10" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Card.cs" caret="138" fromTop="6" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Player.cs" caret="135" fromTop="5" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_CardsShuffler.cs" caret="199" fromTop="9" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Team.cs" caret="326" fromTop="8" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Teams.cs" caret="453" fromTop="15" />
   </RecentFiles>
   <RecentEdits>
-    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Controllers/f:HomeController.cs" caret="880" fromTop="18" />
-    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Controllers/f:HomeController.cs" caret="758" fromTop="13" />
-    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Views/d:Shared/f:_Layout.cshtml" caret="2418" fromTop="11" />
-    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Views/d:Shared/f:_Layout.cshtml" caret="2418" fromTop="14" />
-    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Views/d:Home/f:SignalR.cshtml" caret="765" fromTop="14" />
-    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Views/d:Home/f:SignalR.cshtml" caret="763" fromTop="16" />
-    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Views/d:Home/f:SignalR.cshtml" caret="650" fromTop="11" />
-    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Views/d:Home/f:SignalR.cshtml" caret="308" fromTop="7" />
-    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Views/d:Shared/f:_Layout.cshtml" caret="0" fromTop="0" />
-    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Views/d:Shared/f:_Layout.cshtml" caret="2418" fromTop="10" />
-    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Views/d:Shared/f:_Layout.cshtml" caret="2418" fromTop="10" />
-    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Views/d:Shared/f:_Layout.cshtml" caret="2418" fromTop="10" />
-    <File id="533EEE30-1185-4B08-8879-55F39F284C74/f:Global.asax.cs" caret="736" fromTop="1" />
-    <File id="533EEE30-1185-4B08-8879-55F39F284C74/f:Global.asax.cs" caret="938" fromTop="5" />
-    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Views/d:Home/f:SignalR.cshtml" caret="61" fromTop="4" />
-    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Views/d:Shared/f:_Layout.cshtml" caret="663" fromTop="9" />
-    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Views/d:Home/f:SignalR.cshtml" caret="263" fromTop="7" />
-    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Hubs/f:SessionManager.cs" caret="594" fromTop="10" />
-    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Views/d:Home/f:SignalR.cshtml" caret="459" fromTop="6" />
-    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Hubs/f:SessionManager.cs" caret="87" fromTop="4" />
-    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Hubs/f:SessionManager.cs" caret="223" fromTop="7" />
-    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Hubs/f:SessionManager.cs" caret="638" fromTop="14" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_CardsShuffler.cs" caret="518" fromTop="4" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_CardsShuffler.cs" caret="277" fromTop="12" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_CardsShuffler.cs" caret="154" fromTop="7" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Card.cs" caret="0" fromTop="0" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Enums.cs" caret="169" fromTop="14" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Enums.cs" caret="0" fromTop="0" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Bid.cs" caret="143" fromTop="12" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Bid.cs" caret="257" fromTop="15" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Bid.cs" caret="220" fromTop="14" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Bid.cs" caret="540" fromTop="10" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Bid.cs" caret="329" fromTop="15" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Player.cs" caret="265" fromTop="11" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Player.cs" caret="258" fromTop="0" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Player.cs" caret="0" fromTop="0" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Card.cs" caret="164" fromTop="7" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Bid.cs" caret="203" fromTop="10" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Player.cs" caret="174" fromTop="8" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Team.cs" caret="783" fromTop="31" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Team.cs" caret="53" fromTop="1" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Team.cs" caret="683" fromTop="8" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Team.cs" caret="891" fromTop="20" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Team.cs" caret="433" fromTop="16" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Teams.cs" caret="493" fromTop="11" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Teams.cs" caret="78" fromTop="3" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Teams.cs" caret="497" fromTop="12" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Teams.cs" caret="964" fromTop="15" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Teams.cs" caret="1080" fromTop="20" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Teams.cs" caret="433" fromTop="5" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Teams.cs" caret="802" fromTop="25" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:ToBeNamed/f:_Teams.cs" caret="181" fromTop="5" />
   </RecentEdits>
 </RecentFiles>

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -25,7 +24,7 @@ namespace Tarneeb.Test
             Assert.AreEqual<Suit>(Suit.Spades, gameSession.CurrentBid.Suit);
             Assert.AreEqual<int>(2, gameSession.CurrentBid.Tricks);
             Assert.AreEqual<TeamPosition>(
-                TeamPosition.NorthSouth, 
+                TeamPosition.NorthSouth,
                 gameSession.GetTeamPosition(
                 gameSession.GetPlayerPosition(gameSession.CurrentBid.Player)));
 
@@ -51,7 +50,7 @@ namespace Tarneeb.Test
         private Card PlayRandomCard(List<Card> cards, Suit baseSuit)
         {
             IEnumerable<Card> validCards = null;
-            int numberOfValidCards = cards.Where(c => c.Suit == baseSuit).Count();
+            int numberOfValidCards = cards.Count(c => c.Suit == baseSuit);
             if (numberOfValidCards > 0)
             {
                 validCards = cards.Where(c => c.Suit == baseSuit).Select(c => c);
@@ -81,21 +80,21 @@ namespace Tarneeb.Test
             gameSession.Join(west, PlayerPosition.West);
 
             //--1st bid: East 1 Diamonds
-            gameSession.PlaceBid(Bid.CreateBid(gameSession.GetPlayer(PlayerPosition.East),1, Suit.Diamonds));
+            gameSession.PlaceBid(Bid.CreateBid(gameSession.GetPlayer(PlayerPosition.East), 1, Suit.Diamonds));
             //--2nd bid: North Pass
             gameSession.PlaceBid(Bid.CreatePassBid(gameSession.GetPlayer(PlayerPosition.North)));
             //--3rd bid: West Pass
             gameSession.PlaceBid(Bid.CreatePassBid(gameSession.GetPlayer(PlayerPosition.West)));
             //--4th bid: South 1 Spades
-            gameSession.PlaceBid(Bid.CreateBid(gameSession.GetPlayer(PlayerPosition.South),1, Suit.Spades));
+            gameSession.PlaceBid(Bid.CreateBid(gameSession.GetPlayer(PlayerPosition.South), 1, Suit.Spades));
             //--5th bid: East 2 Diamonds
-            gameSession.PlaceBid(Bid.CreateBid(gameSession.GetPlayer(PlayerPosition.East),2, Suit.Diamonds));
+            gameSession.PlaceBid(Bid.CreateBid(gameSession.GetPlayer(PlayerPosition.East), 2, Suit.Diamonds));
             //--6th bid: North Pass
             gameSession.PlaceBid(Bid.CreatePassBid(gameSession.GetPlayer(PlayerPosition.North)));
             //--7th bid: West Pass
             gameSession.PlaceBid(Bid.CreatePassBid(gameSession.GetPlayer(PlayerPosition.West)));
             //--8th bid: South 2 Spades
-            gameSession.PlaceBid(Bid.CreateBid(gameSession.GetPlayer(PlayerPosition.South),2, Suit.Spades));
+            gameSession.PlaceBid(Bid.CreateBid(gameSession.GetPlayer(PlayerPosition.South), 2, Suit.Spades));
             //--9th bid: East Pass
             gameSession.PlaceBid(Bid.CreatePassBid(gameSession.GetPlayer(PlayerPosition.East)));
             //--10th bid: North Pass

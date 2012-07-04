@@ -5,7 +5,7 @@
     SignalR</h2>
 <script type="text/javascript">
     $(function () {
-        var proxy = $.connection.sessionManager;
+        var proxy = $.connection.activity;
 
         proxy.broadcast = function (args) {
             $("#messages").append('<li>' + args.message + '</li>');
