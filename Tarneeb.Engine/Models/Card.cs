@@ -4,6 +4,8 @@
     {
         public int Rank { get; set; }
         public Suit Suit { get; set; }
+        public Suit Trump { get; set; }
+        public bool IsPlayed { get; set; }
 
         public Card() { }
 
@@ -15,7 +17,11 @@
 
         public int Weight
         {
-            get { return Rank == 1 ? Rank * 14 : Rank; }
+            get
+            {
+                var extraTrumpWeight = (Trump == Suit) ? 20 : 0;
+                return Rank == 1 ? 14 + extraTrumpWeight : Rank + extraTrumpWeight;
+            }
         }
     }
 }

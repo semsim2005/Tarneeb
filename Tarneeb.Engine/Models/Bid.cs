@@ -4,25 +4,30 @@ namespace Tarneeb.Engine.Models
 {
     public class Bid : IComparable<Bid>
     {
-        public int Tricks { get; set; }
+        public int Call { get; set; }
         public Suit Suit { get; set; }
 
         public Bid() { }
 
-        public Bid(int tricks, Suit suit)
+        public Bid(int call, Suit suit)
         {
-            Tricks = tricks;
+            Call = call;
             Suit = suit;
         }
 
         public int CompareTo(Bid other)
         {
-            if (Tricks > other.Tricks)
+            if (Call > other.Call)
                 return 1;
-            if (Tricks < other.Tricks)
+            if (Call < other.Call)
                 return -1;
 
             return Suit.CompareTo(other.Suit);
+        }
+
+        public bool IsBidSatisfied(int collectedTricks)
+        {
+            return collectedTricks >= (Call + 6);
         }
     }
 }

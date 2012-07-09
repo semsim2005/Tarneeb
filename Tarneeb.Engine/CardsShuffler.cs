@@ -6,39 +6,38 @@ namespace Tarneeb.Engine
 {
     public class CardsShuffler
     {
-        private IList<Card> _deck;
-        private IList<Card> Deck
-        {
-            get { return _deck ?? (_deck = new List<Card>()); }
-        }
+        private readonly IList<Card> _deck = new List<Card>();
 
         public IList<Card> GetDeck()
         {
-            Deck.Clear();
             GenerateDeck();
 
-            return Deck;
+            return _deck;
         }
 
         public IList<Card> GetShuffledDeck()
         {
+            GenerateDeck();
+
             var random = new Random();
-            for (var i = 0; i < Deck.Count; i++)
+            for (var i = 0; i < _deck.Count; i++)
             {
-                var randomIndex = random.Next(0, Deck.Count);
-                Deck.Swap(i, randomIndex);
+                var randomIndex = random.Next(0, _deck.Count);
+                _deck.Swap(i, randomIndex);
             }
 
-            return Deck;
+            return _deck;
         }
 
         private void GenerateDeck()
         {
+            _deck.Clear();
+
             for (var i = 1; i < 14; i++)
             {
                 for (var j = 1; j < 5; j++)
                 {
-                    Deck.Add(new Card(i, (Suit)j));
+                    _deck.Add(new Card(i, (Suit)j));
                 }
             }
         }

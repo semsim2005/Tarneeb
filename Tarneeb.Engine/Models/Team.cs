@@ -21,14 +21,9 @@ namespace Tarneeb.Engine.Models
 
         public int TeamScore { get; set; }
 
-        public int MaximumNumberOfPlayers { get; set; }
-
-        public bool AddPlayer(Player player)
+        public void AddPlayer(Player player)
         {
-            if (Players.Count >= MaximumNumberOfPlayers)
-                return false;
             Players.Add(player);
-            return true;
         }
 
         public void RemovePlayer(Player player)
