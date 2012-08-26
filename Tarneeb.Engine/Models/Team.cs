@@ -5,16 +5,11 @@ namespace Tarneeb.Engine.Models
 {
     public class Team
     {
-        private IList<Player> _players;
-
-        private IList<Player> Players
-        {
-            get { return _players ?? (_players = new List<Player>()); }
-        }
+        private readonly IList<Player> _players = new List<Player>();
 
         public int PlayersScore
         {
-            get { return Players.Sum(p => p.Score); }
+            get { return _players.Sum(p => p.Score); }
         }
 
         public string Name { get; set; }
@@ -23,12 +18,12 @@ namespace Tarneeb.Engine.Models
 
         public void AddPlayer(Player player)
         {
-            Players.Add(player);
+            _players.Add(player);
         }
 
         public void RemovePlayer(Player player)
         {
-            Players.Remove(player);
+            _players.Remove(player);
         }
     }
 }

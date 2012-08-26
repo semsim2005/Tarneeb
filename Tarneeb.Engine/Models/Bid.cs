@@ -6,6 +6,7 @@ namespace Tarneeb.Engine.Models
     {
         public int Call { get; set; }
         public Suit Suit { get; set; }
+        public int TricksRequired { get { return Call + 6; } }
 
         public Bid() { }
 
@@ -27,7 +28,7 @@ namespace Tarneeb.Engine.Models
 
         public bool IsBidSatisfied(int collectedTricks)
         {
-            return collectedTricks >= (Call + 6);
+            return collectedTricks >= TricksRequired;
         }
     }
 }

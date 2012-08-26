@@ -13,6 +13,7 @@ namespace Tarneeb.Engine
 
         public void PlayCard(Card card)
         {
+            card.IsPlayed = true;
             _cards.Add(card);
             if (_cards.Count == 4 && RoundClosed != null)
                 RoundClosed(this);
