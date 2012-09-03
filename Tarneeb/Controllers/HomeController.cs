@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Tarneeb.Engine;
 
 namespace TarneebMVC4.Controllers
 {
@@ -10,6 +11,13 @@ namespace TarneebMVC4.Controllers
     {
         public ActionResult Index()
         {
+            var gameSession = new GameSession();
+            gameSession.PlayerJoined += (sender, args) =>
+                                            {
+                                                args.Teams.Clear();
+                                            };
+            gameSession.Join("Tamer", "First Team");
+            gameSession.Join("Tamer 1", "First Team");
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
 
             return View();

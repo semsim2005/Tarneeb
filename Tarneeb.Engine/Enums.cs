@@ -8,4 +8,11 @@
         Speads = 4,
         NoTrump = 5
     }
+
+    public enum CallType
+    {
+        Call,
+        Pass,
+        Double
+    }
 }

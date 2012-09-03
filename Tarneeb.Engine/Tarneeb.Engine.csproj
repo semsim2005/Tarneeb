@@ -40,7 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Pair.cs" />
+    <Compile Include="EventArguments\BidEventArgs.cs" />
+    <Compile Include="EventArguments\GameSetupCompletedEventArgs.cs" />
+    <Compile Include="EventArguments\PlayersInformationEventArgs.cs" />
+    <Compile Include="GameSession.cs" />
+    <Compile Include="Models\Trio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Bid.cs" />
     <Compile Include="Models\Card.cs" />

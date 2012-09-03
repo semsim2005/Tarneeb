@@ -7,11 +7,13 @@ namespace Tarneeb.Engine.Models
         public int Call { get; set; }
         public Suit Suit { get; set; }
         public int TricksRequired { get { return Call + 6; } }
+        public CallType CallType { get; set; }
 
         public Bid() { }
 
-        public Bid(int call, Suit suit)
+        public Bid(CallType calltype, int call = 0, Suit suit = Suit.NoTrump)
         {
+            CallType = calltype;
             Call = call;
             Suit = suit;
         }

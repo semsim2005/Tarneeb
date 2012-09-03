@@ -261,6 +261,12 @@
   <ItemGroup>
     <Content Include="Views\Home\SignalR.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tarneeb.Engine\Tarneeb.Engine.csproj">
+      <Project>{69949B3B-0C31-4002-8B7A-44D51E67A0C2}</Project>
+      <Name>Tarneeb.Engine</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

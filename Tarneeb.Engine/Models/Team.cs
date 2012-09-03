@@ -5,7 +5,8 @@ namespace Tarneeb.Engine.Models
 {
     public class Team
     {
-        private readonly IList<Player> _players = new List<Player>();
+        private readonly List<Player> _players = new List<Player>(2);
+        public List<Player> Players { get { return _players; } }
 
         public int PlayersScore
         {
@@ -16,9 +17,13 @@ namespace Tarneeb.Engine.Models
 
         public int TeamScore { get; set; }
 
-        public void AddPlayer(Player player)
+        public bool AddPlayer(Player player)
         {
+            if (_players.Count == 2)
+                return false;
+
             _players.Add(player);
+            return true;
         }
 
         public void RemovePlayer(Player player)
