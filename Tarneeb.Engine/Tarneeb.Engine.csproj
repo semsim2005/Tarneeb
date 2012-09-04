@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EventArguments\BidEventArgs.cs" />
+    <Compile Include="EventArguments\CardPlayedArgs.cs" />
+    <Compile Include="EventArguments\GameScoreArgs.cs" />
     <Compile Include="EventArguments\GameSetupCompletedEventArgs.cs" />
     <Compile Include="EventArguments\PlayersInformationEventArgs.cs" />
     <Compile Include="GameSession.cs" />

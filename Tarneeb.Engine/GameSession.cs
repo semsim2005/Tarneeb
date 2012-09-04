@@ -13,9 +13,10 @@ namespace Tarneeb.Engine
         private readonly Dictionary<Card, Player> _cardsPlayers = new Dictionary<Card, Player>(52);
         private readonly List<Team> _teams = new List<Team>(2);
         private readonly List<Player> _players = new List<Player>(4);
-        private readonly Trio<Bid, Player, Team> _bidPlayerTeam = new Trio<Bid, Player, Team>();
+        private Trio<Bid, Player, Team> _bidPlayerTeam;
         private Round _round;
         private int _biddingPlayerIndex;
+        private bool _isDouble;
 
         #endregion
 
@@ -29,21 +30,16 @@ namespace Tarneeb.Engine
         public event EventHandler<BidEventArgs> BidCalled;
         public event EventHandler<BidEventArgs> BidEnded;
         public event EventHandler<BidEventArgs> PlayStarted;
-        public event EventHandler CardPlayed;
-        public event EventHandler RoundEnded;
-        public event EventHandler GameEnded;
-
-        #endregion
-
-        #region Properties
-
-        public bool IsDoube { get; set; }
+        public event EventHandler<CardPlayerArgs> CardPlayed;
+        public event EventHandler<CardPlayerArgs> RoundEnded;
+        public event EventHandler<ScoreArgs> RoundsEnded;
+        public event EventHandler<ScoreArgs> GameEnded;
 
         #endregion
 
         #region Public Methods
 
-        public void Join(string playerName, string teamName)
+        public void Join(string playerId, string playerName, string teamName)
         {
             var teamCount = _teams.Count;
 
@@ -60,7 +56,7 @@ namespace Tarneeb.Engine
             }
 
             var team = _teams.First(t => t.Name == teamName);
-            var player = new Player(playerName);
+            var player = new Player(playerId, playerName);
             _players.Add(player);
 
             if (!team.AddPlayer(player))
@@ -102,6 +98,9 @@ namespace Tarneeb.Engine
             if (bid.CallType != CallType.Double &&
                 (bid.CallType != CallType.Pass || _players[_biddingPlayerIndex] != _bidPlayerTeam.Second))
                 return;
+            if (bid.CallType == CallType.Double)
+                _isDouble = true;
+
             var bidArgs = new BidEventArgs
                               {
                                   Bid = _bidPlayerTeam.First,
@@ -123,7 +122,17 @@ namespace Tarneeb.Engine
             }
 
             card.IsPlayed = true;
+            SafelyInvokeEvent(CardPlayed, new CardPlayerArgs
+                                              {
+                                                  Card = card,
+                                                  Player = _cardsPlayers[card]
+                                              });
             _round.PlayCard(card);
+        }
+
+        public Player GetPlayerById(string playerId)
+        {
+            return _players.FirstOrDefault(p => p.Id == playerId);
         }
 
         public Card GetCardByRankSuit(int rank, Suit suit)
@@ -147,10 +156,14 @@ namespace Tarneeb.Engine
         private void SetupGame()
         {
             _cardsPlayers.Clear();
+            _bidPlayerTeam = null;
+            _round = null;
             _biddingPlayerIndex = 0;
+            _isDouble = false;
+            _players.ForEach(p => p.Score = 0);
+            var playerIndex = 0;
             var cardsShuffler = new CardsShuffler();
             var deck = cardsShuffler.GetShuffledDeck();
-            var playerIndex = 0;
 
             for (var i = 0; i < deck.Count; i++)
             {
@@ -165,29 +178,35 @@ namespace Tarneeb.Engine
 
         private void OnRoundClosed(Round round)
         {
-            var card = round.GetWinningCard();
+            var winningCard = round.GetWinningCard();
+            var winningPlayer = _cardsPlayers[winningCard];
             var bid = _bidPlayerTeam.First;
             var biddingTeam = _bidPlayerTeam.Third;
             var nonBiddingTeam = GetNoneBiddingTeam(_bidPlayerTeam.Second.Name);
 
-            _cardsPlayers[card].Score++;
+            winningPlayer.Score++;
             _round = null;
+            SafelyInvokeEvent(RoundEnded, new CardPlayerArgs
+                                              {
+                                                  Card = winningCard,
+                                                  Player = winningPlayer
+                                              });
 
             if (_cardsPlayers.Keys.Any(c => !c.IsPlayed))
                 return;
 
             if (bid.IsBidSatisfied(biddingTeam.PlayersScore))
-                biddingTeam.TeamScore += IsDoube
+                biddingTeam.TeamScore += _isDouble
                                              ? biddingTeam.PlayersScore * 2
                                              : biddingTeam.PlayersScore;
             else
             {
-                if (!IsDoube)
+                if (!_isDouble)
                 {
                     biddingTeam.TeamScore -= bid.TricksRequired;
                     nonBiddingTeam.TeamScore += nonBiddingTeam.PlayersScore;
                 }
-                else if (IsDoube && nonBiddingTeam.PlayersScore >= bid.TricksRequired)
+                else if (_isDouble && nonBiddingTeam.PlayersScore >= bid.TricksRequired)
                 {
                     biddingTeam.TeamScore -= bid.TricksRequired * 2;
                     nonBiddingTeam.TeamScore += nonBiddingTeam.PlayersScore * 2;
@@ -199,9 +218,19 @@ namespace Tarneeb.Engine
                 }
             }
 
+            var scoreArgs = new ScoreArgs
+                                {
+                                    Teams = _teams
+                                };
+
             if (IsGameScoreLimitReached(biddingTeam) || IsGameScoreLimitReached(nonBiddingTeam))
             {
-
+                SafelyInvokeEvent(GameEnded, scoreArgs);
+            }
+            else
+            {
+                SafelyInvokeEvent(RoundsEnded, scoreArgs);
+                SetupGame();
             }
         }
 
@@ -217,9 +246,12 @@ namespace Tarneeb.Engine
 
         private void AssignBidByPlayer(Player player, Bid bid)
         {
-            _bidPlayerTeam.First = bid;
-            _bidPlayerTeam.Second = player;
-            _bidPlayerTeam.Third = _teams.First(t => t.Players.Contains(player));
+            _bidPlayerTeam = new Trio<Bid, Player, Team>
+                                 {
+                                     First = bid,
+                                     Second = player,
+                                     Third = _teams.First(t => t.Players.Contains(player))
+                                 };
         }
 
         #endregion

@@ -16,8 +16,8 @@ namespace TarneebMVC4.Controllers
                                             {
                                                 args.Teams.Clear();
                                             };
-            gameSession.Join("Tamer", "First Team");
-            gameSession.Join("Tamer 1", "First Team");
+            gameSession.Join(string.Empty, "Tamer", "First Team");
+            gameSession.Join(string.Empty, "Tamer 1", "First Team");
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
 
             return View();
