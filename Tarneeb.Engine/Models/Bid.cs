@@ -11,7 +11,7 @@ namespace Tarneeb.Engine.Models
 
         public Bid() { }
 
-        public Bid(CallType calltype, int call = 0, Suit suit = Suit.NoTrump)
+        public Bid(CallType calltype, int call = 1, Suit suit = Suit.NoTrump)
         {
             CallType = calltype;
             Call = call;

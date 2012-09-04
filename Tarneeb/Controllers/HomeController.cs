@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Globalization;
 using System.Web.Mvc;
 using Tarneeb.Engine;
+using Tarneeb.Engine.Models;
 
 namespace TarneebMVC4.Controllers
 {
@@ -14,10 +12,53 @@ namespace TarneebMVC4.Controllers
             var gameSession = new GameSession();
             gameSession.PlayerJoined += (sender, args) =>
                                             {
-                                                args.Teams.Clear();
+
                                             };
-            gameSession.Join(string.Empty, "Tamer", "First Team");
-            gameSession.Join(string.Empty, "Tamer 1", "First Team");
+            gameSession.TeamsCompleted += (sender, args) =>
+                                              {
+
+                                              };
+            gameSession.BiddingStarted += (sender, args) =>
+                                              {
+
+                                              };
+            gameSession.GameSetupCompleted += (sender, args) =>
+                                                  {
+
+                                                  };
+            gameSession.PlayStarted += (sender, args) =>
+                                           {
+
+                                           };
+            gameSession.PlayersCompleted += (sender, args) =>
+                                                {
+
+                                                };
+
+            gameSession.BidCalled += (sender, args) =>
+                                         {
+
+                                         };
+
+            gameSession.BidEnded += (sender, args) =>
+                                        {
+
+                                        };
+
+            for (var i = 0; i < 4; i++)
+            {
+                gameSession.Join(i.ToString(CultureInfo.InvariantCulture),
+                                 string.Format("Player {0}", i), string.Format("Team {0}", i % 2));
+            }
+
+            var biddingPlayer = gameSession.GetPlayerById("0");
+            gameSession.Bid(biddingPlayer, new Bid(CallType.Call, 2, Suit.Diamonds));
+
+            for (var i = 1; i < 4; i++)
+            {
+                gameSession.Bid(gameSession.GetPlayerById(i.ToString(CultureInfo.InvariantCulture)),
+                                new Bid(CallType.Pass));
+            }
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
 
             return View();

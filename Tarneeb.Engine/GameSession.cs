@@ -86,7 +86,7 @@ namespace Tarneeb.Engine
             else if (bid.CallType == CallType.Call)
                 AssignBidByPlayer(player, bid);
 
-            _biddingPlayerIndex++;
+            _biddingPlayerIndex = (_biddingPlayerIndex + 1) % 4;
             SafelyInvokeEvent(BidCalled,
                               new BidEventArgs
                                   {
@@ -101,6 +101,7 @@ namespace Tarneeb.Engine
             if (bid.CallType == CallType.Double)
                 _isDouble = true;
 
+            _cardsPlayers.Keys.ForEach(c => c.Trump = _bidPlayerTeam.First.Suit);
             var bidArgs = new BidEventArgs
                               {
                                   Bid = _bidPlayerTeam.First,
@@ -167,9 +168,9 @@ namespace Tarneeb.Engine
 
             for (var i = 0; i < deck.Count; i++)
             {
-                _cardsPlayers.Add(deck[i], _players[playerIndex]);
-                if (i % 13 == 0)
+                if (i != 0 && i % 13 == 0)
                     playerIndex++;
+                _cardsPlayers.Add(deck[i], _players[playerIndex]);
             }
 
             SafelyInvokeEvent(GameSetupCompleted, new GameSetupCompletedEventArgs { CardsAndPlayers = _cardsPlayers });
