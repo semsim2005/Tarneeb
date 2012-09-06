@@ -3,58 +3,60 @@
     <File id="533EEE30-1185-4B08-8879-55F39F284C74/f:Global.asax.cs" caret="840" fromTop="12" />
     <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Views/d:Home/f:Contact.cshtml" caret="178" fromTop="0" />
     <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Content/d:themes/d:base/d:minified/f:jquery.ui.core.min.css" caret="203" fromTop="4" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:Extensions.cs" caret="0" fromTop="0" />
     <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Hubs/f:Activity.cs" caret="671" fromTop="17" />
     <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Views/d:Home/f:About.cshtml" caret="3346" fromTop="56" />
     <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Views/d:Shared/f:_Layout.cshtml" caret="855" fromTop="14" />
-    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Views/d:Home/f:Index.cshtml" caret="824" fromTop="24" />
     <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Views/d:Home/f:SignalR.cshtml" caret="161" fromTop="8" />
     <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/d:EventArguments/f:GameSetupCompletedEventArgs.cs" caret="170" fromTop="6" />
     <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/d:EventArguments/f:PlayersInformationEventArgs.cs" caret="182" fromTop="6" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/d:EventArguments/f:BidEventArgs.cs" caret="273" fromTop="11" />
-    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Controllers/f:HomeController.cs" caret="226" fromTop="0" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/d:Models/f:Card.cs" caret="0" fromTop="0" />
     <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:CardsShuffler.cs" caret="141" fromTop="6" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/d:Models/f:Player.cs" caret="221" fromTop="11" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:Round.cs" caret="441" fromTop="6" />
     <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Scripts/f:_references.js" caret="0" fromTop="0" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/d:Models/f:Bid.cs" caret="751" fromTop="14" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:Enums.cs" caret="250" fromTop="13" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/d:Models/f:Team.cs" caret="438" fromTop="9" />
-    <File id="E6FA15B1-BA10-4B56-9911-1272194122BE/f:Game.cs" caret="475" fromTop="9" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/d:Models/f:Trio.cs" caret="217" fromTop="9" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="4190" fromTop="15" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:Round.cs" caret="397" fromTop="0" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/d:EventArguments/f:BidEventArgs.cs" caret="0" fromTop="0" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/d:EventArguments/f:CardPlayedArgs.cs" caret="122" fromTop="5" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/d:Models/f:Team.cs" caret="438" fromTop="12" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/d:Models/f:Player.cs" caret="194" fromTop="9" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Views/d:Home/f:Index.cshtml" caret="270" fromTop="2" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Controllers/f:AccountController.cs" caret="2310" fromTop="5" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:Enums.cs" caret="45" fromTop="2" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/d:Models/f:Card.cs" caret="165" fromTop="0" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/d:EventArguments/f:GameScoreArgs.cs" caret="143" fromTop="6" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:Extensions.cs" caret="865" fromTop="12" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/d:Models/f:Bid.cs" caret="318" fromTop="0" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/d:Models/f:Trio.cs" caret="181" fromTop="7" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Controllers/f:HomeController.cs" caret="832" fromTop="13" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="9361" fromTop="9" />
   </RecentFiles>
   <RecentEdits>
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/d:EventArguments/f:GameSetupCompletedEventArgs.cs" caret="260" fromTop="10" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/d:EventArguments/f:GameSetupCompletedEventArgs.cs" caret="121" fromTop="4" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/d:EventArguments/f:BidEventArgs.cs" caret="273" fromTop="11" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="4245" fromTop="11" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="4801" fromTop="18" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="1463" fromTop="12" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:Round.cs" caret="441" fromTop="11" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="4584" fromTop="12" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="7378" fromTop="14" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="4178" fromTop="15" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="6884" fromTop="9" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="4178" fromTop="16" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:Enums.cs" caret="250" fromTop="13" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="5239" fromTop="5" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="5851" fromTop="11" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/d:Models/f:Team.cs" caret="258" fromTop="8" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="3006" fromTop="15" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="7802" fromTop="9" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="2992" fromTop="2" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="3254" fromTop="6" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/d:Models/f:Trio.cs" caret="160" fromTop="7" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/d:Models/f:Trio.cs" caret="84" fromTop="3" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="7908" fromTop="8" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="6058" fromTop="9" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="533" fromTop="15" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="4188" fromTop="11" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="1246" fromTop="12" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="4072" fromTop="13" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="3833" fromTop="7" />
-    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="4189" fromTop="15" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/d:EventArguments/f:CardPlayedArgs.cs" caret="122" fromTop="5" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="8044" fromTop="8" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="8044" fromTop="2" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/d:EventArguments/f:GameScoreArgs.cs" caret="228" fromTop="10" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/d:EventArguments/f:GameScoreArgs.cs" caret="152" fromTop="6" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="1482" fromTop="14" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="8595" fromTop="13" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="8044" fromTop="13" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:Extensions.cs" caret="445" fromTop="8" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="8044" fromTop="3" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="8044" fromTop="9" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/d:Models/f:Bid.cs" caret="372" fromTop="9" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Controllers/f:HomeController.cs" caret="2201" fromTop="16" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Controllers/f:HomeController.cs" caret="1564" fromTop="18" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="8044" fromTop="11" />
+    <File id="533EEE30-1185-4B08-8879-55F39F284C74/d:Controllers/f:HomeController.cs" caret="1816" fromTop="10" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="8044" fromTop="7" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="8597" fromTop="9" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:Extensions.cs" caret="731" fromTop="15" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:Extensions.cs" caret="995" fromTop="10" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="8694" fromTop="13" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="8044" fromTop="9" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="8044" fromTop="10" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="8044" fromTop="9" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="8044" fromTop="10" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="8044" fromTop="9" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="8044" fromTop="9" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="8044" fromTop="4" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="8044" fromTop="12" />
+    <File id="69949B3B-0C31-4002-8B7A-44D51E67A0C2/f:GameSession.cs" caret="9533" fromTop="14" />
   </RecentEdits>
 </RecentFiles>

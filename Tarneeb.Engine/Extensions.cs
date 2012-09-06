@@ -22,5 +22,14 @@ namespace Tarneeb.Engine
                 action(enumerator.Current);
             }
         }
+
+        public static void SafelyInvoke<T>(this EventHandler<T> eventHandler, object sender, T eventArgs)
+            where T : EventArgs
+        {
+            if (eventHandler != null)
+            {
+                eventHandler(sender, eventArgs);
+            }
+        }
     }
 }

@@ -64,16 +64,16 @@ namespace Tarneeb.Engine
                 throw new Exception("Maximum number of players per team has been reached!");
             }
 
-            SafelyInvokeEvent(PlayerJoined, new PlayersInformationEventArgs { Teams = _teams });
+            PlayerJoined.SafelyInvoke(this, new PlayersInformationEventArgs { Teams = _teams });
 
             if (teamCount == 1 && _teams.Count == 2)
             {
-                SafelyInvokeEvent(TeamsCompleted, new PlayersInformationEventArgs { Teams = _teams });
+                TeamsCompleted.SafelyInvoke(this, new PlayersInformationEventArgs { Teams = _teams });
             }
 
             if (_players.Count != 4) return;
 
-            SafelyInvokeEvent(PlayersCompleted, new PlayersInformationEventArgs { Teams = _teams });
+            PlayersCompleted.SafelyInvoke(this, new PlayersInformationEventArgs { Teams = _teams });
             SetupGame();
         }
 
@@ -87,13 +87,13 @@ namespace Tarneeb.Engine
                 AssignBidByPlayer(player, bid);
 
             _biddingPlayerIndex = (_biddingPlayerIndex + 1) % 4;
-            SafelyInvokeEvent(BidCalled,
-                              new BidEventArgs
-                                  {
-                                      Bid = bid,
-                                      Caller = player,
-                                      NextCaller = _players[_biddingPlayerIndex]
-                                  });
+            BidCalled.SafelyInvoke(this,
+                                   new BidEventArgs
+                                       {
+                                           Bid = bid,
+                                           Caller = player,
+                                           NextCaller = _players[_biddingPlayerIndex]
+                                       });
 
             if (bid.CallType != CallType.Double &&
                 (bid.CallType != CallType.Pass || _players[_biddingPlayerIndex] != _bidPlayerTeam.Second))
@@ -107,8 +107,8 @@ namespace Tarneeb.Engine
                                   Bid = _bidPlayerTeam.First,
                                   Caller = _bidPlayerTeam.Second
                               };
-            SafelyInvokeEvent(BidEnded, bidArgs);
-            SafelyInvokeEvent(PlayStarted, bidArgs);
+            BidEnded.SafelyInvoke(this, bidArgs);
+            PlayStarted.SafelyInvoke(this, bidArgs);
         }
 
         public void PlayCard(Card card)
@@ -123,7 +123,7 @@ namespace Tarneeb.Engine
             }
 
             card.IsPlayed = true;
-            SafelyInvokeEvent(CardPlayed, new CardPlayerArgs
+            CardPlayed.SafelyInvoke(this, new CardPlayerArgs
                                               {
                                                   Card = card,
                                                   Player = _cardsPlayers[card]
@@ -145,15 +145,6 @@ namespace Tarneeb.Engine
 
         #region Private Methods
 
-        private void SafelyInvokeEvent<T>(EventHandler<T> eventHandler, T eventArgs)
-            where T : EventArgs
-        {
-            if (eventHandler != null)
-            {
-                eventHandler(this, eventArgs);
-            }
-        }
-
         private void SetupGame()
         {
             _cardsPlayers.Clear();
@@ -166,6 +157,7 @@ namespace Tarneeb.Engine
             var cardsShuffler = new CardsShuffler();
             var deck = cardsShuffler.GetShuffledDeck();
 
+            ReArrangePlayersSeatting();
             for (var i = 0; i < deck.Count; i++)
             {
                 if (i != 0 && i % 13 == 0)
@@ -173,8 +165,8 @@ namespace Tarneeb.Engine
                 _cardsPlayers.Add(deck[i], _players[playerIndex]);
             }
 
-            SafelyInvokeEvent(GameSetupCompleted, new GameSetupCompletedEventArgs { CardsAndPlayers = _cardsPlayers });
-            SafelyInvokeEvent(BiddingStarted, new BidEventArgs { NextCaller = _players[_biddingPlayerIndex] });
+            GameSetupCompleted.SafelyInvoke(this, new GameSetupCompletedEventArgs { CardsAndPlayers = _cardsPlayers });
+            BiddingStarted.SafelyInvoke(this, new BidEventArgs { NextCaller = _players[_biddingPlayerIndex] });
         }
 
         private void OnRoundClosed(Round round)
@@ -187,7 +179,7 @@ namespace Tarneeb.Engine
 
             winningPlayer.Score++;
             _round = null;
-            SafelyInvokeEvent(RoundEnded, new CardPlayerArgs
+            RoundEnded.SafelyInvoke(this, new CardPlayerArgs
                                               {
                                                   Card = winningCard,
                                                   Player = winningPlayer
@@ -226,11 +218,11 @@ namespace Tarneeb.Engine
 
             if (IsGameScoreLimitReached(biddingTeam) || IsGameScoreLimitReached(nonBiddingTeam))
             {
-                SafelyInvokeEvent(GameEnded, scoreArgs);
+                GameEnded.SafelyInvoke(this, scoreArgs);
             }
             else
             {
-                SafelyInvokeEvent(RoundsEnded, scoreArgs);
+                RoundsEnded.SafelyInvoke(this, scoreArgs);
                 SetupGame();
             }
         }
@@ -243,6 +235,18 @@ namespace Tarneeb.Engine
         private static bool IsGameScoreLimitReached(Team team)
         {
             return team.TeamScore >= 31 || team.TeamScore <= -31;
+        }
+
+        private void ReArrangePlayersSeatting()
+        {
+            var random = new Random();
+            var indexOfFirstTeam = random.Next(0, 2);
+            var indexOfFirstPlayer = random.Next(0, 2);
+            var indexOfSecondPlayer = random.Next(0, 2);
+
+            _players.Swap(0, _players.IndexOf(_teams[indexOfFirstTeam].Players[indexOfFirstPlayer]));
+            _players.Swap(1, _players.IndexOf(_teams[1 - indexOfFirstTeam].Players[indexOfSecondPlayer]));
+            _players.Swap(2, _players.IndexOf(_teams[indexOfFirstTeam].Players[1 - indexOfFirstPlayer]));
         }
 
         private void AssignBidByPlayer(Player player, Bid bid)

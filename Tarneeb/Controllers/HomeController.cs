@@ -10,6 +10,7 @@ namespace TarneebMVC4.Controllers
         public ActionResult Index()
         {
             var gameSession = new GameSession();
+            Player biddingPlayer = null;
             gameSession.PlayerJoined += (sender, args) =>
                                             {
 
@@ -20,7 +21,7 @@ namespace TarneebMVC4.Controllers
                                               };
             gameSession.BiddingStarted += (sender, args) =>
                                               {
-
+                                                  biddingPlayer = args.NextCaller;
                                               };
             gameSession.GameSetupCompleted += (sender, args) =>
                                                   {
@@ -37,7 +38,7 @@ namespace TarneebMVC4.Controllers
 
             gameSession.BidCalled += (sender, args) =>
                                          {
-
+                                             biddingPlayer = args.NextCaller;
                                          };
 
             gameSession.BidEnded += (sender, args) =>
@@ -51,12 +52,11 @@ namespace TarneebMVC4.Controllers
                                  string.Format("Player {0}", i), string.Format("Team {0}", i % 2));
             }
 
-            var biddingPlayer = gameSession.GetPlayerById("0");
             gameSession.Bid(biddingPlayer, new Bid(CallType.Call, 2, Suit.Diamonds));
 
             for (var i = 1; i < 4; i++)
             {
-                gameSession.Bid(gameSession.GetPlayerById(i.ToString(CultureInfo.InvariantCulture)),
+                gameSession.Bid(biddingPlayer,
                                 new Bid(CallType.Pass));
             }
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
