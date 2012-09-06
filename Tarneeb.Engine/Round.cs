@@ -20,8 +20,8 @@ namespace Tarneeb.Engine
 
         public Card GetWinningCard()
         {
-            var maxWeight = _cards.Where(c => c.Suit == BaseSuit || c.Suit == c.Trump).Max(c => c.Weight);
-            return _cards.Single(c => c.Weight == maxWeight);
+            return _cards.Where(c => c.Suit == BaseSuit || c.Suit == c.Trump)
+                .Aggregate((current, next) => current.Weight > next.Weight ? current : next);
         }
     }
 }

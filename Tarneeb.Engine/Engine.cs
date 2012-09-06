@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using Tarneeb.Engine.EventArguments;
 using Tarneeb.Engine.Models;
 
 namespace Tarneeb.Engine
 {
-    public class GameSession
+    public class Engine
     {
         #region Members
 
@@ -17,23 +18,93 @@ namespace Tarneeb.Engine
         private Round _round;
         private int _biddingPlayerIndex;
         private bool _isDouble;
+        private readonly EventHandlerList _eventHandlerList = new EventHandlerList();
+
+        #endregion
+
+        #region Constants
+
+        private const string PlayerJoinedConstant = "PlayerJoined";
+        private const string TeamsCompletedConstant = "TeamsCompleted";
+        private const string PlayersCompletedConstant = "PlayersCompleted";
+        private const string GameSetupCompletedConstant = "GameSetupCompleted";
+        private const string BiddingStartedConstant = "BiddingStarted";
+        private const string BidCalledConstant = "BidCalled";
+        private const string BidEndedConstant = "BidEnded";
+        private const string CardPlayedConstant = "CardPlayed";
+        private const string RoundEndedConstant = "RoundEnded";
+        private const string RoundsEndedConstant = "RoundsEnded";
+        private const string GameEndedConstant = "GameEnded";
 
         #endregion
 
         #region Events
 
-        public event EventHandler<PlayersInformationEventArgs> PlayerJoined;
-        public event EventHandler<PlayersInformationEventArgs> TeamsCompleted;
-        public event EventHandler<PlayersInformationEventArgs> PlayersCompleted;
-        public event EventHandler<GameSetupCompletedEventArgs> GameSetupCompleted;
-        public event EventHandler<BidEventArgs> BiddingStarted;
-        public event EventHandler<BidEventArgs> BidCalled;
-        public event EventHandler<BidEventArgs> BidEnded;
-        public event EventHandler<BidEventArgs> PlayStarted;
-        public event EventHandler<CardPlayerArgs> CardPlayed;
-        public event EventHandler<CardPlayerArgs> RoundEnded;
-        public event EventHandler<ScoreArgs> RoundsEnded;
-        public event EventHandler<ScoreArgs> GameEnded;
+        public event EventHandler<PlayersInformationEventArgs> PlayerJoined
+        {
+            add { _eventHandlerList.AddHandler(PlayerJoinedConstant, value); }
+            remove { _eventHandlerList.RemoveHandler(PlayerJoinedConstant, value); }
+        }
+
+        public event EventHandler<PlayersInformationEventArgs> TeamsCompleted
+        {
+            add { _eventHandlerList.AddHandler(TeamsCompletedConstant, value); }
+            remove { _eventHandlerList.RemoveHandler(TeamsCompletedConstant, value); }
+        }
+
+        public event EventHandler<PlayersInformationEventArgs> PlayersCompleted
+        {
+            add { _eventHandlerList.AddHandler(PlayersCompletedConstant, value); }
+            remove { _eventHandlerList.RemoveHandler(PlayersCompletedConstant, value); }
+        }
+
+        public event EventHandler<GameSetupCompletedEventArgs> GameSetupCompleted
+        {
+            add { _eventHandlerList.AddHandler(GameSetupCompletedConstant, value); }
+            remove { _eventHandlerList.RemoveHandler(GameSetupCompletedConstant, value); }
+        }
+
+        public event EventHandler<BidEventArgs> BiddingStarted
+        {
+            add { _eventHandlerList.AddHandler(BiddingStartedConstant, value); }
+            remove { _eventHandlerList.RemoveHandler(BiddingStartedConstant, value); }
+        }
+
+        public event EventHandler<BidEventArgs> BidCalled
+        {
+            add { _eventHandlerList.AddHandler(BidCalledConstant, value); }
+            remove { _eventHandlerList.RemoveHandler(BidCalledConstant, value); }
+        }
+
+        public event EventHandler<BidEventArgs> BidEnded
+        {
+            add { _eventHandlerList.AddHandler(BidEndedConstant, value); }
+            remove { _eventHandlerList.RemoveHandler(BidEndedConstant, value); }
+        }
+
+        public event EventHandler<CardPlayerArgs> CardPlayed
+        {
+            add { _eventHandlerList.AddHandler(CardPlayedConstant, value); }
+            remove { _eventHandlerList.RemoveHandler(CardPlayedConstant, value); }
+        }
+
+        public event EventHandler<CardPlayerArgs> RoundEnded
+        {
+            add { _eventHandlerList.AddHandler(RoundEndedConstant, value); }
+            remove { _eventHandlerList.RemoveHandler(RoundEndedConstant, value); }
+        }
+
+        public event EventHandler<ScoreArgs> RoundsEnded
+        {
+            add { _eventHandlerList.AddHandler(RoundsEndedConstant, value); }
+            remove { _eventHandlerList.RemoveHandler(RoundsEndedConstant, value); }
+        }
+
+        public event EventHandler<ScoreArgs> GameEnded
+        {
+            add { _eventHandlerList.AddHandler(GameEndedConstant, value); }
+            remove { _eventHandlerList.RemoveHandler(GameEndedConstant, value); }
+        }
 
         #endregion
 
@@ -64,16 +135,18 @@ namespace Tarneeb.Engine
                 throw new Exception("Maximum number of players per team has been reached!");
             }
 
-            PlayerJoined.SafelyInvoke(this, new PlayersInformationEventArgs { Teams = _teams });
+            _eventHandlerList[PlayerJoinedConstant].SafelyInvoke(this, new PlayersInformationEventArgs { Teams = _teams });
 
             if (teamCount == 1 && _teams.Count == 2)
             {
-                TeamsCompleted.SafelyInvoke(this, new PlayersInformationEventArgs { Teams = _teams });
+                _eventHandlerList[TeamsCompletedConstant].SafelyInvoke(this,
+                                                                       new PlayersInformationEventArgs { Teams = _teams });
             }
 
             if (_players.Count != 4) return;
 
-            PlayersCompleted.SafelyInvoke(this, new PlayersInformationEventArgs { Teams = _teams });
+            _eventHandlerList[PlayersCompletedConstant].SafelyInvoke(this,
+                                                                     new PlayersInformationEventArgs { Teams = _teams });
             SetupGame();
         }
 
@@ -87,13 +160,13 @@ namespace Tarneeb.Engine
                 AssignBidByPlayer(player, bid);
 
             _biddingPlayerIndex = (_biddingPlayerIndex + 1) % 4;
-            BidCalled.SafelyInvoke(this,
-                                   new BidEventArgs
-                                       {
-                                           Bid = bid,
-                                           Caller = player,
-                                           NextCaller = _players[_biddingPlayerIndex]
-                                       });
+            _eventHandlerList[BidCalledConstant].SafelyInvoke(this,
+                                                              new BidEventArgs
+                                                                  {
+                                                                      Bid = bid,
+                                                                      Caller = player,
+                                                                      NextCaller = _players[_biddingPlayerIndex]
+                                                                  });
 
             if (bid.CallType != CallType.Double &&
                 (bid.CallType != CallType.Pass || _players[_biddingPlayerIndex] != _bidPlayerTeam.Second))
@@ -107,8 +180,7 @@ namespace Tarneeb.Engine
                                   Bid = _bidPlayerTeam.First,
                                   Caller = _bidPlayerTeam.Second
                               };
-            BidEnded.SafelyInvoke(this, bidArgs);
-            PlayStarted.SafelyInvoke(this, bidArgs);
+            _eventHandlerList[BidEndedConstant].SafelyInvoke(this, bidArgs);
         }
 
         public void PlayCard(Card card)
@@ -123,11 +195,15 @@ namespace Tarneeb.Engine
             }
 
             card.IsPlayed = true;
-            CardPlayed.SafelyInvoke(this, new CardPlayerArgs
-                                              {
-                                                  Card = card,
-                                                  Player = _cardsPlayers[card]
-                                              });
+            var player = _cardsPlayers[card];
+            _eventHandlerList[CardPlayedConstant].SafelyInvoke(this, new CardPlayerArgs
+                                                                         {
+                                                                             Card = card,
+                                                                             Player = player,
+                                                                             NextPlayer =
+                                                                                 _players[
+                                                                                     (_players.IndexOf(player) + 1) % 4]
+                                                                         });
             _round.PlayCard(card);
         }
 
@@ -165,8 +241,10 @@ namespace Tarneeb.Engine
                 _cardsPlayers.Add(deck[i], _players[playerIndex]);
             }
 
-            GameSetupCompleted.SafelyInvoke(this, new GameSetupCompletedEventArgs { CardsAndPlayers = _cardsPlayers });
-            BiddingStarted.SafelyInvoke(this, new BidEventArgs { NextCaller = _players[_biddingPlayerIndex] });
+            _eventHandlerList[GameSetupCompletedConstant].SafelyInvoke(this,
+                                                                       new GameSetupCompletedEventArgs { CardsPlayers = _cardsPlayers });
+            _eventHandlerList[BiddingStartedConstant].SafelyInvoke(this,
+                                                                   new BidEventArgs { NextCaller = _players[_biddingPlayerIndex] });
         }
 
         private void OnRoundClosed(Round round)
@@ -179,11 +257,11 @@ namespace Tarneeb.Engine
 
             winningPlayer.Score++;
             _round = null;
-            RoundEnded.SafelyInvoke(this, new CardPlayerArgs
-                                              {
-                                                  Card = winningCard,
-                                                  Player = winningPlayer
-                                              });
+            _eventHandlerList[RoundEndedConstant].SafelyInvoke(this, new CardPlayerArgs
+                                                                         {
+                                                                             Card = winningCard,
+                                                                             Player = winningPlayer
+                                                                         });
 
             if (_cardsPlayers.Keys.Any(c => !c.IsPlayed))
                 return;
@@ -218,11 +296,11 @@ namespace Tarneeb.Engine
 
             if (IsGameScoreLimitReached(biddingTeam) || IsGameScoreLimitReached(nonBiddingTeam))
             {
-                GameEnded.SafelyInvoke(this, scoreArgs);
+                _eventHandlerList[GameEndedConstant].SafelyInvoke(this, scoreArgs);
             }
             else
             {
-                RoundsEnded.SafelyInvoke(this, scoreArgs);
+                _eventHandlerList[RoundsEndedConstant].SafelyInvoke(this, scoreArgs);
                 SetupGame();
             }
         }

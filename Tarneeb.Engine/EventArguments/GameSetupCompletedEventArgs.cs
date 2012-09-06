@@ -6,6 +6,6 @@ namespace Tarneeb.Engine.EventArguments
 {
     public class GameSetupCompletedEventArgs : EventArgs
     {
-        public Dictionary<Card, Player> CardsAndPlayers { get; set; }
+        public Dictionary<Card, Player> CardsPlayers { get; set; }
     }
 }

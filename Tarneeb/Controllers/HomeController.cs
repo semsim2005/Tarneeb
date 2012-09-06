@@ -1,4 +1,7 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
 using System.Web.Mvc;
 using Tarneeb.Engine;
 using Tarneeb.Engine.Models;
@@ -9,8 +12,12 @@ namespace TarneebMVC4.Controllers
     {
         public ActionResult Index()
         {
-            var gameSession = new GameSession();
+            var gameSession = new Engine();
             Player biddingPlayer = null;
+            Dictionary<Card, Player> cardsPlayers = null;
+            var newRound = true;
+            var baseSuit = Suit.NoTrump;
+
             gameSession.PlayerJoined += (sender, args) =>
                                             {
 
@@ -25,12 +32,8 @@ namespace TarneebMVC4.Controllers
                                               };
             gameSession.GameSetupCompleted += (sender, args) =>
                                                   {
-
+                                                      cardsPlayers = args.CardsPlayers;
                                                   };
-            gameSession.PlayStarted += (sender, args) =>
-                                           {
-
-                                           };
             gameSession.PlayersCompleted += (sender, args) =>
                                                 {
 
@@ -43,8 +46,21 @@ namespace TarneebMVC4.Controllers
 
             gameSession.BidEnded += (sender, args) =>
                                         {
-
+                                            biddingPlayer = args.Caller;
                                         };
+            gameSession.CardPlayed += (sender, args) =>
+                                          {
+                                              biddingPlayer = args.NextPlayer;
+                                          };
+            gameSession.RoundEnded += (sender, args) =>
+                                          {
+                                              newRound = true;
+                                          };
+
+            gameSession.RoundsEnded += (sender, args) =>
+                                           {
+
+                                           };
 
             for (var i = 0; i < 4; i++)
             {
@@ -59,8 +75,45 @@ namespace TarneebMVC4.Controllers
                 gameSession.Bid(biddingPlayer,
                                 new Bid(CallType.Pass));
             }
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
 
+            var random = new Random();
+            do
+            {
+                Card card = null;
+                if (newRound)
+                {
+                    var cards = cardsPlayers.Where(kv => !kv.Key.IsPlayed &&
+                                                         kv.Value.Id == biddingPlayer.Id)
+                        .Select(kv => kv.Key).ToList();
+                    card = cards[random.Next(0, cards.Count)];
+                    newRound = false;
+                    baseSuit = card.Suit;
+                }
+                else
+                {
+                    if (cardsPlayers.Any(kv => !kv.Key.IsPlayed &&
+                                               kv.Value.Id == biddingPlayer.Id &&
+                                               kv.Key.Suit == baseSuit))
+                    {
+                        var cards = cardsPlayers.Where(kv => !kv.Key.IsPlayed &&
+                                                             kv.Value.Id == biddingPlayer.Id &&
+                                                             kv.Key.Suit == baseSuit).
+                            Select(kv => kv.Key).ToList();
+                        card = cards[random.Next(0, cards.Count)];
+                    }
+                    else
+                    {
+                        var cards = cardsPlayers.Where(kv => !kv.Key.IsPlayed &&
+                                                             kv.Value.Id == biddingPlayer.Id)
+                            .Select(kv => kv.Key).ToList();
+                        card = cards[random.Next(0, cards.Count)];
+                    }
+
+                    gameSession.PlayCard(card);
+                }
+            } while (cardsPlayers.Keys.Any(c => !c.IsPlayed));
+
+            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
             return View();
         }
 

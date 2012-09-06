@@ -23,9 +23,10 @@ namespace Tarneeb.Engine
             }
         }
 
-        public static void SafelyInvoke<T>(this EventHandler<T> eventHandler, object sender, T eventArgs)
+        public static void SafelyInvoke<T>(this Delegate dDelegate, object sender, T eventArgs)
             where T : EventArgs
         {
+            var eventHandler = dDelegate as EventHandler<T>;
             if (eventHandler != null)
             {
                 eventHandler(sender, eventArgs);

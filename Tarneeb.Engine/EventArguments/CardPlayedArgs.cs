@@ -8,5 +8,7 @@ namespace Tarneeb.Engine.EventArguments
         public Card Card { get; set; }
 
         public Player Player { get; set; }
+
+        public Player NextPlayer { get; set; }
     }
 }
