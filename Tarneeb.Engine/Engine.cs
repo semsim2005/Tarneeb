@@ -147,6 +147,7 @@ namespace Tarneeb.Engine
 
             _eventHandlerList[PlayersCompletedConstant].SafelyInvoke(this,
                                                                      new PlayersInformationEventArgs { Teams = _teams });
+            ReArrangePlayersSeatting();
             SetupGame();
         }
 
@@ -233,7 +234,6 @@ namespace Tarneeb.Engine
             var cardsShuffler = new CardsShuffler();
             var deck = cardsShuffler.GetShuffledDeck();
 
-            ReArrangePlayersSeatting();
             for (var i = 0; i < deck.Count; i++)
             {
                 if (i != 0 && i % 13 == 0)
